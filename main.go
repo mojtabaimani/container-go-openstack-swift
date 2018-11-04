@@ -31,6 +31,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	defer content.Close()
 
 	headers, err := conn.ObjectPut("containerName", "book.pdf", content, false, "", "application/pdf", nil)
 	if err!=nil{
